@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		1C259DEF2B49BD6F00800B78 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C259DEE2B49BD6F00800B78 /* AppDelegate.swift */; };
 		1C259DF12B49BD6F00800B78 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C259DF02B49BD6F00800B78 /* SceneDelegate.swift */; };
-		1C259DF32B49BD6F00800B78 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C259DF22B49BD6F00800B78 /* ViewController.swift */; };
-		1C259DF62B49BD6F00800B78 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C259DF42B49BD6F00800B78 /* Main.storyboard */; };
 		1C259DF82B49BD7200800B78 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C259DF72B49BD7200800B78 /* Assets.xcassets */; };
 		1C259DFB2B49BD7200800B78 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C259DF92B49BD7200800B78 /* LaunchScreen.storyboard */; };
 		1C259E062B49BD7200800B78 /* TradeKycAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C259E052B49BD7200800B78 /* TradeKycAppTests.swift */; };
@@ -30,8 +28,6 @@
 		1C259DEB2B49BD6F00800B78 /* TradeKycApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TradeKycApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C259DEE2B49BD6F00800B78 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1C259DF02B49BD6F00800B78 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		1C259DF22B49BD6F00800B78 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		1C259DF52B49BD6F00800B78 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1C259DF72B49BD7200800B78 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1C259DFA2B49BD7200800B78 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1C259DFC2B49BD7200800B78 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -80,8 +76,6 @@
 			children = (
 				1C259DEE2B49BD6F00800B78 /* AppDelegate.swift */,
 				1C259DF02B49BD6F00800B78 /* SceneDelegate.swift */,
-				1C259DF22B49BD6F00800B78 /* ViewController.swift */,
-				1C259DF42B49BD6F00800B78 /* Main.storyboard */,
 				1C259DF72B49BD7200800B78 /* Assets.xcassets */,
 				1C259DF92B49BD7200800B78 /* LaunchScreen.storyboard */,
 				1C259DFC2B49BD7200800B78 /* Info.plist */,
@@ -180,7 +174,6 @@
 			files = (
 				1C259DFB2B49BD7200800B78 /* LaunchScreen.storyboard in Resources */,
 				1C259DF82B49BD7200800B78 /* Assets.xcassets in Resources */,
-				1C259DF62B49BD6F00800B78 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -198,7 +191,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1C259DF32B49BD6F00800B78 /* ViewController.swift in Sources */,
 				1C259DEF2B49BD6F00800B78 /* AppDelegate.swift in Sources */,
 				1C259DF12B49BD6F00800B78 /* SceneDelegate.swift in Sources */,
 			);
@@ -223,14 +215,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		1C259DF42B49BD6F00800B78 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1C259DF52B49BD6F00800B78 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		1C259DF92B49BD7200800B78 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -373,7 +357,6 @@
 				INFOPLIST_FILE = TradeKycApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -402,7 +385,6 @@
 				INFOPLIST_FILE = TradeKycApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
