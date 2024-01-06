@@ -11,7 +11,7 @@
 		1C259DF12B49BD6F00800B78 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C259DF02B49BD6F00800B78 /* SceneDelegate.swift */; };
 		1C259DF82B49BD7200800B78 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C259DF72B49BD7200800B78 /* Assets.xcassets */; };
 		1C259DFB2B49BD7200800B78 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C259DF92B49BD7200800B78 /* LaunchScreen.storyboard */; };
-		1C259E062B49BD7200800B78 /* TradeKycAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C259E052B49BD7200800B78 /* TradeKycAppTests.swift */; };
+		1C259E1F2B49C52000800B78 /* HomeUIIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C259E1E2B49C52000800B78 /* HomeUIIntegrationTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,7 +32,7 @@
 		1C259DFA2B49BD7200800B78 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1C259DFC2B49BD7200800B78 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1C259E012B49BD7200800B78 /* TradeKycAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TradeKycAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		1C259E052B49BD7200800B78 /* TradeKycAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradeKycAppTests.swift; sourceTree = "<group>"; };
+		1C259E1E2B49C52000800B78 /* HomeUIIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeUIIntegrationTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,7 +86,7 @@
 		1C259E042B49BD7200800B78 /* TradeKycAppTests */ = {
 			isa = PBXGroup;
 			children = (
-				1C259E052B49BD7200800B78 /* TradeKycAppTests.swift */,
+				1C259E1E2B49C52000800B78 /* HomeUIIntegrationTests.swift */,
 			);
 			path = TradeKycAppTests;
 			sourceTree = "<group>";
@@ -144,6 +144,7 @@
 					};
 					1C259E002B49BD7200800B78 = {
 						CreatedOnToolsVersion = 15.0.1;
+						LastSwiftMigration = 1500;
 						TestTargetID = 1C259DEA2B49BD6F00800B78;
 					};
 				};
@@ -200,7 +201,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1C259E062B49BD7200800B78 /* TradeKycAppTests.swift in Sources */,
+				1C259E1F2B49C52000800B78 /* HomeUIIntegrationTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -406,6 +407,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2LS4DW8C9B;
@@ -415,6 +417,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = CzKyc.TradeKycAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TradeKycApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TradeKycApp";
@@ -426,6 +429,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2LS4DW8C9B;
