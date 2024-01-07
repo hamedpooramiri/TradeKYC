@@ -16,17 +16,21 @@ final class HomePresenterTests: XCTestCase {
         XCTAssertEqual(service.capturedRequests, [])
     }
 
-    func test_onViewLoad_failToGetAdmin_displayError() {
+    func test_requestData_failToGetAdmin_displayError() {
         let (sut, service, view) = makeSUT()
-        sut.onViewLoad(withDeviceID: "any device ID")
+        sut.requestData(withDeviceID: "any device ID")
         service.completeGetAdmin(with: anyNSError())
         XCTAssertEqual(service.capturedRequests, [.getAdmin])
-        XCTAssertEqual(view.capturedResults, [.display(error: anyNSError().localizedDescription)])
+        XCTAssertEqual(view.capturedResults, [
+            .display(isLoading: true),
+            .display(error: anyNSError().localizedDescription),
+            .display(isLoading: false)
+        ])
     }
 
-    func test_onViewLoad_failToGetToken_displayError() {
+    func test_requestData_failToGetToken_displayError() {
         let (sut, service, view) = makeSUT()
-        sut.onViewLoad(withDeviceID: "any device ID")
+        sut.requestData(withDeviceID: "any device ID")
         
         let admin = Admin(username: "any admin", password: "12345")
         service.complete(with: admin)
@@ -34,13 +38,17 @@ final class HomePresenterTests: XCTestCase {
         service.completeGetToken(with: anyMarzbanError())
         
         XCTAssertEqual(service.capturedRequests, [.getAdmin, .getToken(username: admin.username, password: admin.password)])
-        XCTAssertEqual(view.capturedResults, [.display(error: anyMarzbanError().localizedDescription)])
+        XCTAssertEqual(view.capturedResults, [
+            .display(isLoading: true),
+            .display(error: anyMarzbanError().localizedDescription),
+            .display(isLoading: false)
+        ])
     }
 
-    func test_onViewLoad_failToGetUser_displayError() {
+    func test_requestData_failToGetUser_displayError() {
         let (sut, service, view) = makeSUT()
         let username = "any device ID"
-        sut.onViewLoad(withDeviceID: username)
+        sut.requestData(withDeviceID: username)
         
         let admin = Admin(username: "any admin", password: "12345")
         service.complete(with: admin)
@@ -55,14 +63,18 @@ final class HomePresenterTests: XCTestCase {
             .getToken(username: admin.username, password: admin.password),
             .getUser(username: username, accessToken: anytoken)
         ])
-        XCTAssertEqual(view.capturedResults, [.display(error: anyMarzbanError().localizedDescription)])
+        XCTAssertEqual(view.capturedResults, [
+            .display(isLoading: true),
+            .display(error: anyMarzbanError().localizedDescription),
+            .display(isLoading: false)
+        ])
     }
 
-    func test_onViewLoad_failToGetUserWithNotFoundError_addUser() {
+    func test_requestData_failToGetUserWithNotFoundError_addUserSuccessfully() {
         let (sut, service, view) = makeSUT()
         
         let username = "any device ID"
-        sut.onViewLoad(withDeviceID: username)
+        sut.requestData(withDeviceID: username)
         
         let admin = Admin(username: "any admin", password: "12345")
         service.complete(with: admin)
@@ -83,14 +95,16 @@ final class HomePresenterTests: XCTestCase {
         ])
 
         XCTAssertEqual(view.capturedResults, [
-            .display(viewModel: .init(user: user, apps: []))
+            .display(isLoading: true),
+            .display(viewModel: .init(user: user, apps: [])),
+            .display(isLoading: false)
         ])
     }
 
-    func test_onViewLoad_successfullyGetUser_displayData() {
+    func test_requestData_successfullyGetUser_displayData() {
         let (sut, service, view) = makeSUT()
         let username = "any device ID"
-        sut.onViewLoad(withDeviceID: username)
+        sut.requestData(withDeviceID: username)
 
         let anyAdmin = Admin(username: "any admin", password: "12345")
         service.complete(with: anyAdmin)
@@ -107,13 +121,17 @@ final class HomePresenterTests: XCTestCase {
             .getUser(username: username, accessToken: anytoken)
         ])
 
-        XCTAssertEqual(view.capturedResults, [.display(viewModel: .init(user: anyUser, apps: []))])
+        XCTAssertEqual(view.capturedResults, [
+            .display(isLoading: true),
+            .display(viewModel: .init(user: anyUser, apps: [])),
+            .display(isLoading: false)
+        ])
     }
 
-    func test_onViewLoad_successfullyAddUser_displayData() {
+    func test_requestData_successfullyAddUser_displayData() {
         let (sut, service, view) = makeSUT()
         let username = "any device ID"
-        sut.onViewLoad(withDeviceID: username)
+        sut.requestData(withDeviceID: username)
 
         let anyAdmin = Admin(username: "any admin", password: "12345")
         service.complete(with: anyAdmin)
@@ -133,7 +151,26 @@ final class HomePresenterTests: XCTestCase {
             .addUser(username: username, accessToken: anytoken)
         ])
 
-        XCTAssertEqual(view.capturedResults, [.display(viewModel: .init(user: anyUser, apps: []))])
+        XCTAssertEqual(view.capturedResults, [
+            .display(isLoading: true),
+            .display(viewModel: .init(user: anyUser, apps: [])),
+            .display(isLoading: false)
+        ])
+    }
+
+    func test_requestData_notDeliverResultAfterSUTDeallocated() {
+        let serviceSpy = ServiceSpy()
+        let viewSpy = ViewSpy()
+        var sut: HomePresenter? = HomePresenter(tradeKycService: serviceSpy, marzbanService: serviceSpy, errorView: viewSpy, loadingView: viewSpy, view: viewSpy)
+        
+        sut?.requestData(withDeviceID: "any ID")
+        
+        sut = nil
+        serviceSpy.completeGetAdmin(with: MarzbanServiceError.invalidData)
+        
+        XCTAssertEqual(viewSpy.capturedResults, [
+            .display(isLoading: true)
+        ])
     }
 
     // MARK: - Helpers

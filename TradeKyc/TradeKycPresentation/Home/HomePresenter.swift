@@ -21,7 +21,7 @@ public protocol HomePresenterView {
 }
 
 public protocol HomePresenterInput {
-    func onViewLoad(withDeviceID deviceID: String)
+    func requestData(withDeviceID deviceID: String)
 }
 
 public final class HomePresenter: HomePresenterInput {
@@ -43,8 +43,9 @@ public final class HomePresenter: HomePresenterInput {
         self.view = view
     }
     
-    public func onViewLoad(withDeviceID deviceID: String) {
+    public func requestData(withDeviceID deviceID: String) {
         self.deviceID = deviceID
+        loadingView.display(isLoading: true)
         tradeKycService.getAdmin { [weak self] result in
             guard let self else { return }
             switch result {
@@ -52,6 +53,7 @@ public final class HomePresenter: HomePresenterInput {
                 self.getToken(with: admin)
             case let .failure(error):
                 self.errorView.display(error: error.localizedDescription)
+                self.loadingView.display(isLoading: false)
             }
         }
     }
@@ -64,6 +66,7 @@ public final class HomePresenter: HomePresenterInput {
                 self.getUser(accessToken: accessToken)
             case let .failure(error):
                 self.errorView.display(error: error.localizedDescription)
+                self.loadingView.display(isLoading: false)
             }
         }
     }
@@ -74,11 +77,13 @@ public final class HomePresenter: HomePresenterInput {
             switch result {
             case let .success(user):
                 self.view.display(viewModel: HomeViewModel(subscriptionLink: user.subscriptionURL, links: user.links, apps: []))
+                self.loadingView.display(isLoading: false)
             case let .failure(error):
                 if error == .notFound {
                     self.addUser(accessToken: accessToken)
                 } else {
                     self.errorView.display(error: error.localizedDescription)
+                    self.loadingView.display(isLoading: false)
                 }
             }
         }
@@ -93,6 +98,7 @@ public final class HomePresenter: HomePresenterInput {
             case let .failure(error):
                 self.errorView.display(error: error.localizedDescription)
             }
+            self.loadingView.display(isLoading: false)
         }
     }
 
