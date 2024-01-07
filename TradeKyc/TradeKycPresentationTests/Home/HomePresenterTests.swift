@@ -16,6 +16,15 @@ final class HomePresenterTests: XCTestCase {
         XCTAssertEqual(service.capturedRequests, [])
     }
 
+    func test_requestData_noDeviceID_displayError() {
+        let (sut, service, view) = makeSUT()
+        sut.requestData(withDeviceID: nil)
+        XCTAssertEqual(service.capturedRequests, [])
+        XCTAssertEqual(view.capturedResults, [
+            .display(error: HomePresenter.NoDeviceIDError().localizedDescription)
+        ])
+    }
+
     func test_requestData_failToGetAdmin_displayError() {
         let (sut, service, view) = makeSUT()
         sut.requestData(withDeviceID: "any device ID")
@@ -96,7 +105,7 @@ final class HomePresenterTests: XCTestCase {
 
         XCTAssertEqual(view.capturedResults, [
             .display(isLoading: true),
-            .display(viewModel: .init(user: user, apps: [])),
+            .display(viewModel: .init(user: user)),
             .display(isLoading: false)
         ])
     }
@@ -123,7 +132,7 @@ final class HomePresenterTests: XCTestCase {
 
         XCTAssertEqual(view.capturedResults, [
             .display(isLoading: true),
-            .display(viewModel: .init(user: anyUser, apps: [])),
+            .display(viewModel: .init(user: anyUser)),
             .display(isLoading: false)
         ])
     }
@@ -153,7 +162,7 @@ final class HomePresenterTests: XCTestCase {
 
         XCTAssertEqual(view.capturedResults, [
             .display(isLoading: true),
-            .display(viewModel: .init(user: anyUser, apps: [])),
+            .display(viewModel: .init(user: anyUser)),
             .display(isLoading: false)
         ])
     }

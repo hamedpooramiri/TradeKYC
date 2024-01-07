@@ -21,11 +21,15 @@ public protocol HomePresenterView {
 }
 
 public protocol HomePresenterInput {
-    func requestData(withDeviceID deviceID: String)
+    func requestData(withDeviceID deviceID: String?)
 }
 
 public final class HomePresenter: HomePresenterInput {
-    
+
+    public struct NoDeviceIDError: Error {
+        public init() {}
+    }
+
     private var marzbanService: MarzbanServiceProtocol
     private var tradeKycService: TradeKycServiceProtocol
     
@@ -43,7 +47,10 @@ public final class HomePresenter: HomePresenterInput {
         self.view = view
     }
     
-    public func requestData(withDeviceID deviceID: String) {
+    public func requestData(withDeviceID deviceID: String?) {
+        guard let deviceID = deviceID else  {
+            return errorView.display(error: NoDeviceIDError().localizedDescription)
+        }
         self.deviceID = deviceID
         loadingView.display(isLoading: true)
         tradeKycService.getAdmin { [weak self] result in
@@ -76,7 +83,7 @@ public final class HomePresenter: HomePresenterInput {
             guard let self else { return }
             switch result {
             case let .success(user):
-                self.view.display(viewModel: HomeViewModel(subscriptionLink: user.subscriptionURL, links: user.links, apps: []))
+                self.view.display(viewModel: HomeViewModel(subscriptionLink: user.subscriptionURL, links: user.links))
                 self.loadingView.display(isLoading: false)
             case let .failure(error):
                 if error == .notFound {
@@ -94,7 +101,7 @@ public final class HomePresenter: HomePresenterInput {
             guard let self else { return }
             switch result {
             case let .success(user):
-                self.view.display(viewModel: HomeViewModel(subscriptionLink: user.subscriptionURL, links: user.links, apps: []))
+                self.view.display(viewModel: HomeViewModel(subscriptionLink: user.subscriptionURL, links: user.links))
             case let .failure(error):
                 self.errorView.display(error: error.localizedDescription)
             }

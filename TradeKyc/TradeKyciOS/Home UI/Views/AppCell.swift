@@ -7,10 +7,10 @@
 
 import UIKit
 
-class AppCell: UITableViewCell {
-    @IBOutlet weak var iconImageView: UIImageView!
-    @IBOutlet weak var appNameLabel: UILabel!
-    @IBOutlet weak var actionLabel: UILabel!
+public final class AppCell: UITableViewCell {
+    @IBOutlet public private(set) weak var iconImageView: UIImageView!
+    @IBOutlet public private(set) weak var appNameLabel: UILabel!
+    @IBOutlet public private(set) weak var actionLabel: UILabel!
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -18,7 +18,7 @@ class AppCell: UITableViewCell {
         iconImageView.clipsToBounds = true
     }
     
-    override func layoutSubviews() {
+    public override func layoutSubviews() {
         iconImageView.clipsToBounds = true
         iconImageView.layer.cornerRadius = 8
         

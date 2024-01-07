@@ -8,12 +8,7 @@
 import UIKit
 import TradeKycPresentation
 
-public protocol HomeViewControllerDelegate {
-    func onRefresh()
-    func requestData(for username: String)
-}
-
-public final class HomeViewController: UITableViewController {
+public final class HomeViewController: UITableViewController, HomePresenterErrorView, HomePresenterLoadingView {
 
     private(set) public var errorView = ErrorView()
     private lazy var dataSource: UITableViewDiffableDataSource<Int, CellController> = {
@@ -22,13 +17,22 @@ public final class HomeViewController: UITableViewController {
         }
     }()
     
-    public var delegate: HomeViewControllerDelegate?
+    public var presenter: HomePresenterInput?
+    private var onViewIsAppearing: ((HomeViewController) -> Void)?
 
     public override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        requestData()
+        onViewIsAppearing = { vc in
+            vc.requestData()
+            vc.onViewIsAppearing = nil
+        }
         configureTableView()
+    }
+
+    public override func viewIsAppearing(_ animated: Bool) {
+        super.viewIsAppearing(animated)
+        onViewIsAppearing?(self)
     }
 
     private func configureTableView() {
@@ -44,11 +48,7 @@ public final class HomeViewController: UITableViewController {
     }
 
     private func requestData() {
-        if let uuid = UIDevice.current.identifierForVendor?.uuidString {
-//            delegate?.requestData(for: <#T##String#>)
-        } else {
-            // no id show error
-        }
+        presenter?.requestData(withDeviceID:  UIDevice.current.identifierForVendor?.uuidString)
     }
     
     public override func viewDidLayoutSubviews() {
@@ -57,8 +57,8 @@ public final class HomeViewController: UITableViewController {
         tableView.sizeTableHeaderToFit()
     }
 
-    @IBAction private func onRefresh(_ sender: UIRefreshControl) {
-        delegate?.onRefresh()
+    @IBAction private func onRefresh() {
+        requestData()
     }
     
     // MARK: Tableview delegate

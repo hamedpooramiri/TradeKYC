@@ -19,4 +19,9 @@ public struct AppViewModel: Equatable {
         self.appUrl = appUrl
         self.imageName = imageName
     }
+    
+    static var defaultApps: [Self] = [
+    
+    
+    ]
 }
