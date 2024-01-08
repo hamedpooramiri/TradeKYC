@@ -68,24 +68,23 @@ final class HomeSnapshotTests: XCTestCase {
     }
 
     private func listWithQrCode(list: [CellController]) -> [CellController] {
-        [CellController(id: UUID(), QRCodeCellController(qrCode: "any qrCode"))] + list
+        [CellController(id: UUID(), QRCodeCellController(viewModel: .init(subscriptionLink: "www.any-url.com", links: [])))] + list
     }
 
     private func qrCodeCell() -> [CellController] {
-        [CellController(id: UUID(), QRCodeCellController(qrCode: "any qrCode"))]
+        [CellController(id: UUID(), QRCodeCellController(viewModel: .init(subscriptionLink: "www.any-url.com", links: [])))]
     }
 
     private func listWithContent(_ appStub: [AppViewModel]) -> [CellController] {
         appStub.map { app in
-            CellController(id: UUID(),
-                           AppCellController(appName: app.name, actionTitle: "Open", imageIcon: .make(withColor: .red), selection: {}))
+            CellController(id: UUID(), AppCellController(viewModel: app, selection: {}))
         }
     }
 
     private func appStub() -> [AppViewModel] {
         [
-            AppViewModel(name: "V2Box", storeUrl: URL(string: "www.any-url.com")!, appUrl: URL(string:"V2Box://app")!, imageName: "V2Box.png"),
-            AppViewModel(name: "V2ray", storeUrl: URL(string: "www.any-url.com")!, appUrl: URL(string:"V2ray://app")!, imageName: "V2ray.png")
+            AppViewModel(name: "V2Box", storeUrl: URL(string: "www.any-url.com")!, appUrl: URL(string:"V2Box://app")!, image: UIImage.make(withColor: .red).pngData()!, actionText: "Open"),
+            AppViewModel(name: "V2ray", storeUrl: URL(string: "www.any-url.com")!, appUrl: URL(string:"V2ray://app")!, image: UIImage.make(withColor: .blue).pngData()!, actionText: "Open")
         ]
     }
 }

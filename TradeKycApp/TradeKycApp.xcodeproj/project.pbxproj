@@ -12,6 +12,34 @@
 		1C259DF82B49BD7200800B78 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C259DF72B49BD7200800B78 /* Assets.xcassets */; };
 		1C259DFB2B49BD7200800B78 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C259DF92B49BD7200800B78 /* LaunchScreen.storyboard */; };
 		1C259E1F2B49C52000800B78 /* HomeUIIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C259E1E2B49C52000800B78 /* HomeUIIntegrationTests.swift */; };
+		1C259E272B49C8E600800B78 /* APIModule.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C259E212B49C8E600800B78 /* APIModule.framework */; };
+		1C259E282B49C8E600800B78 /* APIModule.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1C259E212B49C8E600800B78 /* APIModule.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1C259E292B49C8E600800B78 /* MarzbanAPIModule.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C259E222B49C8E600800B78 /* MarzbanAPIModule.framework */; };
+		1C259E2A2B49C8E600800B78 /* MarzbanAPIModule.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1C259E222B49C8E600800B78 /* MarzbanAPIModule.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1C259E2B2B49C8E600800B78 /* TradeKyc.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C259E232B49C8E600800B78 /* TradeKyc.framework */; };
+		1C259E2C2B49C8E600800B78 /* TradeKyc.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1C259E232B49C8E600800B78 /* TradeKyc.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1C259E2F2B49C8E600800B78 /* TradeKyciOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C259E252B49C8E600800B78 /* TradeKyciOS.framework */; };
+		1C259E302B49C8E600800B78 /* TradeKyciOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1C259E252B49C8E600800B78 /* TradeKyciOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1C259E312B49C8E600800B78 /* TradeKycPresentation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C259E262B49C8E600800B78 /* TradeKycPresentation.framework */; };
+		1C259E322B49C8E600800B78 /* TradeKycPresentation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1C259E262B49C8E600800B78 /* TradeKycPresentation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1C259E342B49C90000800B78 /* TradeKycAPIModule.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C259E242B49C8E600800B78 /* TradeKycAPIModule.framework */; };
+		1C259E352B49C90000800B78 /* TradeKycAPIModule.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1C259E242B49C8E600800B78 /* TradeKycAPIModule.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1C259E372B49CA0C00800B78 /* HomeUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C259E362B49CA0C00800B78 /* HomeUIComposer.swift */; };
+		1C259E3A2B49D08D00800B78 /* ServiceSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C259E392B49D08D00800B78 /* ServiceSpy.swift */; };
+		1C259E3C2B49D13500800B78 /* XCTestCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C259E3B2B49D13500800B78 /* XCTestCase+MemoryLeakTracking.swift */; };
+		1C259E3E2B4AD8E200800B78 /* UIControl+TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C259E3D2B4AD8E200800B78 /* UIControl+TestHelpers.swift */; };
+		1C259E402B4AD90000800B78 /* UIRefreshControl+TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C259E3F2B4AD90000800B78 /* UIRefreshControl+TestHelpers.swift */; };
+		1C259E422B4AD9A300800B78 /* HomeViewController+TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C259E412B4AD9A300800B78 /* HomeViewController+TestHelpers.swift */; };
+		1C259E452B4B1ABA00800B78 /* HomeUIIntegrationTests+Assertions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C259E442B4B1ABA00800B78 /* HomeUIIntegrationTests+Assertions.swift */; };
+		1C259E472B4B1B6000800B78 /* UIView+TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C259E462B4B1B6000800B78 /* UIView+TestHelpers.swift */; };
+		1C259E492B4B1EEE00800B78 /* AppCell+TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C259E482B4B1EEE00800B78 /* AppCell+TestHelpers.swift */; };
+		1C259E4B2B4B297A00800B78 /* UIImage+TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C259E4A2B4B297A00800B78 /* UIImage+TestHelpers.swift */; };
+		1C259E4D2B4B315000800B78 /* WeakRefVirtualProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C259E4C2B4B315000800B78 /* WeakRefVirtualProxy.swift */; };
+		1C259E4F2B4B317F00800B78 /* HomePresentationViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C259E4E2B4B317F00800B78 /* HomePresentationViewAdapter.swift */; };
+		1C259E522B4B6E2100800B78 /* SceneDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C259E512B4B6E2100800B78 /* SceneDelegateTests.swift */; };
+		1C259E542B4C186700800B78 /* TradeKycAcceptanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C259E532B4C186700800B78 /* TradeKycAcceptanceTests.swift */; };
+		1C259E562B4C658700800B78 /* HTTPClientStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C259E552B4C658700800B78 /* HTTPClientStub.swift */; };
+		1C259E582B4C7A8100800B78 /* MainQueueDispatchDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C259E572B4C7A8100800B78 /* MainQueueDispatchDecorator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -24,6 +52,25 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		1C259E332B49C8E700800B78 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				1C259E302B49C8E600800B78 /* TradeKyciOS.framework in Embed Frameworks */,
+				1C259E282B49C8E600800B78 /* APIModule.framework in Embed Frameworks */,
+				1C259E352B49C90000800B78 /* TradeKycAPIModule.framework in Embed Frameworks */,
+				1C259E2A2B49C8E600800B78 /* MarzbanAPIModule.framework in Embed Frameworks */,
+				1C259E2C2B49C8E600800B78 /* TradeKyc.framework in Embed Frameworks */,
+				1C259E322B49C8E600800B78 /* TradeKycPresentation.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		1C259DEB2B49BD6F00800B78 /* TradeKycApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TradeKycApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C259DEE2B49BD6F00800B78 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -33,6 +80,28 @@
 		1C259DFC2B49BD7200800B78 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1C259E012B49BD7200800B78 /* TradeKycAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TradeKycAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C259E1E2B49C52000800B78 /* HomeUIIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeUIIntegrationTests.swift; sourceTree = "<group>"; };
+		1C259E212B49C8E600800B78 /* APIModule.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = APIModule.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1C259E222B49C8E600800B78 /* MarzbanAPIModule.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MarzbanAPIModule.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1C259E232B49C8E600800B78 /* TradeKyc.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TradeKyc.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1C259E242B49C8E600800B78 /* TradeKycAPIModule.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TradeKycAPIModule.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1C259E252B49C8E600800B78 /* TradeKyciOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TradeKyciOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1C259E262B49C8E600800B78 /* TradeKycPresentation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TradeKycPresentation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1C259E362B49CA0C00800B78 /* HomeUIComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeUIComposer.swift; sourceTree = "<group>"; };
+		1C259E392B49D08D00800B78 /* ServiceSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceSpy.swift; sourceTree = "<group>"; };
+		1C259E3B2B49D13500800B78 /* XCTestCase+MemoryLeakTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+MemoryLeakTracking.swift"; sourceTree = "<group>"; };
+		1C259E3D2B4AD8E200800B78 /* UIControl+TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIControl+TestHelpers.swift"; sourceTree = "<group>"; };
+		1C259E3F2B4AD90000800B78 /* UIRefreshControl+TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIRefreshControl+TestHelpers.swift"; sourceTree = "<group>"; };
+		1C259E412B4AD9A300800B78 /* HomeViewController+TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+TestHelpers.swift"; sourceTree = "<group>"; };
+		1C259E442B4B1ABA00800B78 /* HomeUIIntegrationTests+Assertions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeUIIntegrationTests+Assertions.swift"; sourceTree = "<group>"; };
+		1C259E462B4B1B6000800B78 /* UIView+TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+TestHelpers.swift"; sourceTree = "<group>"; };
+		1C259E482B4B1EEE00800B78 /* AppCell+TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppCell+TestHelpers.swift"; sourceTree = "<group>"; };
+		1C259E4A2B4B297A00800B78 /* UIImage+TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+TestHelpers.swift"; sourceTree = "<group>"; };
+		1C259E4C2B4B315000800B78 /* WeakRefVirtualProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeakRefVirtualProxy.swift; sourceTree = "<group>"; };
+		1C259E4E2B4B317F00800B78 /* HomePresentationViewAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresentationViewAdapter.swift; sourceTree = "<group>"; };
+		1C259E512B4B6E2100800B78 /* SceneDelegateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegateTests.swift; sourceTree = "<group>"; };
+		1C259E532B4C186700800B78 /* TradeKycAcceptanceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradeKycAcceptanceTests.swift; sourceTree = "<group>"; };
+		1C259E552B4C658700800B78 /* HTTPClientStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClientStub.swift; sourceTree = "<group>"; };
+		1C259E572B4C7A8100800B78 /* MainQueueDispatchDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainQueueDispatchDecorator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +109,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C259E2F2B49C8E600800B78 /* TradeKyciOS.framework in Frameworks */,
+				1C259E272B49C8E600800B78 /* APIModule.framework in Frameworks */,
+				1C259E342B49C90000800B78 /* TradeKycAPIModule.framework in Frameworks */,
+				1C259E292B49C8E600800B78 /* MarzbanAPIModule.framework in Frameworks */,
+				1C259E2B2B49C8E600800B78 /* TradeKyc.framework in Frameworks */,
+				1C259E312B49C8E600800B78 /* TradeKycPresentation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,6 +134,7 @@
 				1C259DED2B49BD6F00800B78 /* TradeKycApp */,
 				1C259E042B49BD7200800B78 /* TradeKycAppTests */,
 				1C259DEC2B49BD6F00800B78 /* Products */,
+				1C259E202B49C8E600800B78 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -76,6 +152,10 @@
 			children = (
 				1C259DEE2B49BD6F00800B78 /* AppDelegate.swift */,
 				1C259DF02B49BD6F00800B78 /* SceneDelegate.swift */,
+				1C259E4E2B4B317F00800B78 /* HomePresentationViewAdapter.swift */,
+				1C259E572B4C7A8100800B78 /* MainQueueDispatchDecorator.swift */,
+				1C259E4C2B4B315000800B78 /* WeakRefVirtualProxy.swift */,
+				1C259E362B49CA0C00800B78 /* HomeUIComposer.swift */,
 				1C259DF72B49BD7200800B78 /* Assets.xcassets */,
 				1C259DF92B49BD7200800B78 /* LaunchScreen.storyboard */,
 				1C259DFC2B49BD7200800B78 /* Info.plist */,
@@ -86,9 +166,58 @@
 		1C259E042B49BD7200800B78 /* TradeKycAppTests */ = {
 			isa = PBXGroup;
 			children = (
-				1C259E1E2B49C52000800B78 /* HomeUIIntegrationTests.swift */,
+				1C259E432B4B1AA200800B78 /* Home */,
+				1C259E382B49D08200800B78 /* Helpers */,
+				1C259E532B4C186700800B78 /* TradeKycAcceptanceTests.swift */,
+				1C259E512B4B6E2100800B78 /* SceneDelegateTests.swift */,
 			);
 			path = TradeKycAppTests;
+			sourceTree = "<group>";
+		};
+		1C259E202B49C8E600800B78 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1C259E212B49C8E600800B78 /* APIModule.framework */,
+				1C259E222B49C8E600800B78 /* MarzbanAPIModule.framework */,
+				1C259E232B49C8E600800B78 /* TradeKyc.framework */,
+				1C259E242B49C8E600800B78 /* TradeKycAPIModule.framework */,
+				1C259E252B49C8E600800B78 /* TradeKyciOS.framework */,
+				1C259E262B49C8E600800B78 /* TradeKycPresentation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1C259E382B49D08200800B78 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				1C259E4A2B4B297A00800B78 /* UIImage+TestHelpers.swift */,
+				1C259E3B2B49D13500800B78 /* XCTestCase+MemoryLeakTracking.swift */,
+				1C259E392B49D08D00800B78 /* ServiceSpy.swift */,
+				1C259E3D2B4AD8E200800B78 /* UIControl+TestHelpers.swift */,
+				1C259E3F2B4AD90000800B78 /* UIRefreshControl+TestHelpers.swift */,
+				1C259E462B4B1B6000800B78 /* UIView+TestHelpers.swift */,
+				1C259E552B4C658700800B78 /* HTTPClientStub.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		1C259E432B4B1AA200800B78 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				1C259E502B4B6DFE00800B78 /* Helpers */,
+				1C259E1E2B49C52000800B78 /* HomeUIIntegrationTests.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		1C259E502B4B6DFE00800B78 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				1C259E482B4B1EEE00800B78 /* AppCell+TestHelpers.swift */,
+				1C259E442B4B1ABA00800B78 /* HomeUIIntegrationTests+Assertions.swift */,
+				1C259E412B4AD9A300800B78 /* HomeViewController+TestHelpers.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -101,6 +230,7 @@
 				1C259DE72B49BD6F00800B78 /* Sources */,
 				1C259DE82B49BD6F00800B78 /* Frameworks */,
 				1C259DE92B49BD6F00800B78 /* Resources */,
+				1C259E332B49C8E700800B78 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -192,7 +322,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C259E372B49CA0C00800B78 /* HomeUIComposer.swift in Sources */,
 				1C259DEF2B49BD6F00800B78 /* AppDelegate.swift in Sources */,
+				1C259E4D2B4B315000800B78 /* WeakRefVirtualProxy.swift in Sources */,
+				1C259E4F2B4B317F00800B78 /* HomePresentationViewAdapter.swift in Sources */,
+				1C259E582B4C7A8100800B78 /* MainQueueDispatchDecorator.swift in Sources */,
 				1C259DF12B49BD6F00800B78 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -201,7 +335,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C259E3A2B49D08D00800B78 /* ServiceSpy.swift in Sources */,
+				1C259E452B4B1ABA00800B78 /* HomeUIIntegrationTests+Assertions.swift in Sources */,
+				1C259E492B4B1EEE00800B78 /* AppCell+TestHelpers.swift in Sources */,
+				1C259E4B2B4B297A00800B78 /* UIImage+TestHelpers.swift in Sources */,
+				1C259E522B4B6E2100800B78 /* SceneDelegateTests.swift in Sources */,
+				1C259E472B4B1B6000800B78 /* UIView+TestHelpers.swift in Sources */,
+				1C259E402B4AD90000800B78 /* UIRefreshControl+TestHelpers.swift in Sources */,
 				1C259E1F2B49C52000800B78 /* HomeUIIntegrationTests.swift in Sources */,
+				1C259E422B4AD9A300800B78 /* HomeViewController+TestHelpers.swift in Sources */,
+				1C259E562B4C658700800B78 /* HTTPClientStub.swift in Sources */,
+				1C259E542B4C186700800B78 /* TradeKycAcceptanceTests.swift in Sources */,
+				1C259E3C2B49D13500800B78 /* XCTestCase+MemoryLeakTracking.swift in Sources */,
+				1C259E3E2B4AD8E200800B78 /* UIControl+TestHelpers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

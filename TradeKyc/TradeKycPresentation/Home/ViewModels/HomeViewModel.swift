@@ -12,7 +12,6 @@ public struct HomeViewModel: Equatable {
 
     public let subscriptionLink: String
     public let links: [String]
-    public var apps: [AppViewModel] = []
     
     public init(subscriptionLink: String, links: [String]) {
         self.subscriptionLink = subscriptionLink

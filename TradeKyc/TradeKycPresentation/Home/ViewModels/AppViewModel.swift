@@ -8,20 +8,18 @@
 import Foundation
 
 public struct AppViewModel: Equatable {
+
     public let name: String
     public let storeUrl: URL
     public let appUrl: URL
-    public let imageName: String
-    
-    public init(name: String, storeUrl: URL, appUrl: URL, imageName: String) {
+    public let image: Data
+    public var actionText: String
+
+    public init(name: String, storeUrl: URL, appUrl: URL, image: Data, actionText: String) {
         self.name = name
         self.storeUrl = storeUrl
         self.appUrl = appUrl
-        self.imageName = imageName
+        self.image = image
+        self.actionText = actionText
     }
-    
-    static var defaultApps: [Self] = [
-    
-    
-    ]
 }

@@ -11,15 +11,11 @@ import TradeKycPresentation
 public final class AppCellController: NSObject {
 
     private var cell: AppCell?
-    private let appName: String
-    private let actionTitle: String
-    private let imageIcon: UIImage
+    private let viewModel: AppViewModel
     private var onSelection: (()-> Void)?
 
-    public init(appName: String, actionTitle: String, imageIcon: UIImage, selection: @escaping () -> Void) {
-        self.appName = appName
-        self.actionTitle = actionTitle
-        self.imageIcon = imageIcon
+    public init(viewModel: AppViewModel, selection: @escaping () -> Void) {
+        self.viewModel = viewModel
         self.onSelection = selection
     }
 
@@ -32,9 +28,9 @@ extension AppCellController: UITableViewDataSource, UITableViewDelegate {
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         cell = tableView.dequeueReusableCell()
-        cell?.actionLabel.text = actionTitle
-        cell?.appNameLabel.text = appName
-        cell?.iconImageView.image = imageIcon
+        cell?.actionLabel.text = viewModel.actionText
+        cell?.appNameLabel.text = viewModel.name
+        cell?.iconImageView.image = .init(data: viewModel.image)
         return cell!
     }
 

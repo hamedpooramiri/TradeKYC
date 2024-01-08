@@ -21,7 +21,6 @@ public final class AppCell: UITableViewCell {
     public override func layoutSubviews() {
         iconImageView.clipsToBounds = true
         iconImageView.layer.cornerRadius = 8
-        
     }
 
     required init?(coder: NSCoder) {

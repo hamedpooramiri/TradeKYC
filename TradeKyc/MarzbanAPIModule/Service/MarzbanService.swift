@@ -23,7 +23,7 @@ public final class MarzbanService: MarzbanServiceProtocol {
         guard let data = try? GetTokenMapper.encodeBodyRequest(username: username, password: password) else {
             return completion(.failure(Error.invalidData))
         }
-        _ = httpClient.post(data, to: url.appending(path: "/admin/token"), field: ["Content-Type": "application/json"]) { [weak self] result in
+        _ = httpClient.post(data, to: url.appendingPathComponent("/admin/token"), field: ["Content-Type": "application/json"]) { [weak self] result in
             guard self != nil else { return }
             if case let .success((data, response)) = result {
                 if response.isOK, let tokenResponse = try? GetTokenMapper.map(data: data), let token = tokenResponse.access_token {
@@ -41,7 +41,7 @@ public final class MarzbanService: MarzbanServiceProtocol {
 
     public func getUser(username: String, accessToken: String, completion: @escaping (GetUserResult) -> Void) {
         let field = generateHeaderFields(using: accessToken)
-        _ = httpClient.get(from: url.appending(path: "/user/\(username)"), field: field) { [weak self] result in
+        _ = httpClient.get(from: url.appendingPathComponent("/user/\(username)"), field: field) { [weak self] result in
             guard self != nil else { return }
             if case let .success((data, response)) = result {
                 if response.isOK, let user = try? GetUserMapper.map(data: data) {
@@ -66,7 +66,7 @@ public final class MarzbanService: MarzbanServiceProtocol {
             return completion(.failure(Error.invalidData))
         }
         let field = generateHeaderFields(using: accessToken)
-        _ = httpClient.post(reqBody, to: url.appending(path: "/user"), field: field) { [weak self] result in
+        _ = httpClient.post(reqBody, to: url.appendingPathComponent("/user"), field: field) { [weak self] result in
             guard self != nil else { return }
             if case let .success((data, response)) = result {
                 if response.isOK, let user = try? AddUserMapper.map(data: data) {

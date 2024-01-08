@@ -6,17 +6,44 @@
 //
 
 import UIKit
+import TradeKyc
+import MarzbanAPIModule
+import TradeKycAPIModule
+import APIModule
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
+    private var marzbanServiceURL: URL = URL(string: "www.any-url.com")!
+    private var tradeKycServiceURL: URL = URL(string: "www.any-url.com")!
 
+    convenience init(httpClient: HTTPClient, marzbanServiceURL: URL, tradeKycServiceURL: URL) {
+        self.init()
+        self.httpClient = httpClient
+        self.marzbanServiceURL = marzbanServiceURL
+        self.tradeKycServiceURL = tradeKycServiceURL
+    }
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        guard let _ = (scene as? UIWindowScene) else { return }
+        guard let scene = (scene as? UIWindowScene) else { return }
+        window = UIWindow(windowScene: scene)
+        configureWindow()
+    }
+
+    func configureWindow() {
+        window?.rootViewController = UINavigationController(
+            rootViewController:
+                HomeUIComposer.homeComposedWith(tradeKycService: makeTradeKycService(url: tradeKycServiceURL),
+                                                marzbanService: makeMarzbanService(url: marzbanServiceURL),
+                                                apps: [.init(name: "v2box", storeUrl: URL(string: "www.any-url.com")!, appUrl: URL(string: "www.any-url.com")!, image: Data(), actionText: "")],
+                                                onAppSelection: { appViewModel, homeViewModel in
+                                                    
+                                                })
+        )
+        window?.makeKeyAndVisible()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -45,6 +72,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Called as the scene transitions from the foreground to the background.
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
+    }
+
+    private lazy var httpClient: HTTPClient = {
+        URLSessionHTTPClient(session: URLSession(configuration: .ephemeral))
+    }()
+    
+    private func makeTradeKycService(url: URL) -> TradeKycServiceProtocol {
+        TradeKycService(url: url, httpClient: httpClient)
+    }
+
+    private func makeMarzbanService(url: URL) -> MarzbanServiceProtocol {
+        MarzbanService(url: url, httpClient: httpClient)
     }
 
 
